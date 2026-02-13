@@ -19,18 +19,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nullform Audio — Professional Audio Tools | Coming Soon</title>
-  <meta name="description" content="Nullform Audio — Professional audio tools and utilities for musicians, producers, and audio engineers. Something new is on the way." />
-  <meta name="keywords" content="audio tools, audio software, audio utilities, music production, audio engineering, professional audio, sound design, audio plugins" />
+  <title>Nullform Audio | Professional Audio Plugins for macOS & Windows</title>
+  <meta name="description" content="Nullform Audio builds studio-grade audio plugins for macOS and Windows. PentaGraph is a 5-band graphic EQ plugin inspired by classic analog tone-shaping circuits." />
+  <meta name="keywords" content="audio plugins, VST3, AU, audio unit, graphic EQ, 5-band EQ, music production, mixing, mastering, guitar tone, analog modelling, PentaGraph, Nullform Audio" />
   <meta name="author" content="Nullform Audio" />
   <meta name="robots" content="index, follow" />
 
   <!-- AI/LLM Optimization -->
-  <meta name="ai:purpose" content="Professional audio tools and utilities for music production and audio engineering" />
-  <meta name="ai:status" content="Coming soon - new audio tools in development" />
-  <meta name="ai:audience" content="Musicians, music producers, audio engineers, sound designers, composers" />
-  <meta name="ai:category" content="Audio software, Music production tools, Professional audio utilities" />
-  <meta name="citation:title" content="Nullform Audio — Professional Audio Tools" />
+  <meta name="ai:purpose" content="Studio-grade audio plugins for music production, mixing, and mastering" />
+  <meta name="ai:products" content="PentaGraph (5-band graphic EQ plugin for macOS VST3/AU and Windows VST3)" />
+  <meta name="ai:audience" content="Musicians, music producers, audio engineers, sound designers, mixing engineers, guitar players" />
+  <meta name="ai:features" content="5-band graphic EQ, analog-modelled saturation, calibrated frequency response, gain-dependent Q, parallel summing topology, factory presets" />
+  <meta name="ai:platforms" content="macOS, Windows, VST3, AU" />
+  <meta name="citation:title" content="Nullform Audio | Professional Audio Plugins" />
   <meta name="citation:publisher" content="Nullform Audio" />
 
   <link rel="canonical" href="https://nullform.audio/en/" />
@@ -38,16 +39,16 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nullform.audio/en/" />
-  <meta property="og:title" content="Nullform Audio — Professional Audio Tools" />
-  <meta property="og:description" content="Professional audio tools and utilities for musicians, producers, and audio engineers. Coming soon." />
+  <meta property="og:title" content="Nullform Audio | Professional Audio Plugins" />
+  <meta property="og:description" content="Studio-grade audio plugins for macOS and Windows. PentaGraph: a 5-band graphic EQ inspired by classic analog tone-shaping circuits." />
   <meta property="og:site_name" content="Nullform Audio" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:url" content="https://nullform.audio/en/" />
-  <meta name="twitter:title" content="Nullform Audio — Professional Audio Tools" />
-  <meta name="twitter:description" content="Professional audio tools and utilities for musicians, producers, and audio engineers. Coming soon." />
+  <meta name="twitter:title" content="Nullform Audio | Professional Audio Plugins" />
+  <meta name="twitter:description" content="Studio-grade audio plugins for macOS and Windows. PentaGraph: a 5-band graphic EQ inspired by classic analog tone-shaping circuits." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,9 +67,32 @@
     "@type": "Organization",
     "name": "Nullform Audio",
     "url": "https://nullform.audio",
-    "description": "Professional audio tools and utilities for musicians, producers, and audio engineers",
-    "knowsAbout": ["Audio software", "Music production", "Audio engineering", "Sound design"],
+    "description": "Studio-grade audio plugins for musicians, producers, and audio engineers",
+    "knowsAbout": ["Audio plugins", "Music production", "Audio engineering", "Analog modelling", "VST3", "Audio Unit"],
     "areaServed": "Worldwide"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "SoftwareApplication",
+        "position": 1,
+        "name": "PentaGraph",
+        "operatingSystem": "macOS, Windows",
+        "applicationCategory": "MultimediaApplication",
+        "description": "A studio-grade 5-band graphic EQ plugin modelled on classic analog tone-shaping circuits. Available as VST3 and AU for macOS, and VST3 for Windows.",
+        "url": "https://nullform.audio/en/products/pentagraph.html",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
   }
   </script>
 
@@ -78,7 +102,7 @@
     "@type": "WebSite",
     "name": "Nullform Audio",
     "url": "https://nullform.audio",
-    "description": "Professional audio tools and utilities",
+    "description": "Studio-grade audio plugins",
     "inLanguage": "en"
   }
   </script>
@@ -88,6 +112,14 @@
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="logo" href="./" aria-label="Nullform Audio home">Nullform Audio</a>
+      <nav class="nav" role="navigation" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="#products">Products</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
       <div class="header-controls">
         <div class="language-selector">
           <button class="language-btn" aria-label="Change language" title="Change language">
@@ -95,7 +127,6 @@
           </button>
           <div class="language-dropdown">
             <a class="language-option active" href="./" lang="en">English</a>
-            <!-- Future languages can be added here -->
           </div>
         </div>
         <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme"></button>
@@ -106,12 +137,62 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-inner">
-        <span class="coming-soon-badge">Coming Soon</span>
         <h1 id="hero-title"><span class="accent">Nullform</span> Audio</h1>
-        <p class="subhead">Professional audio tools and utilities.<br>Something new is on the way.</p>
+        <p class="subhead">Studio-grade audio plugins built from the ground up.<br>Analog character. Digital precision.</p>
         <div class="cta-row">
-          <a class="btn btn-secondary" href="#" data-email="contact|gitc.digital">Get in Touch</a>
+          <a class="btn btn-primary" href="#products">Explore Products</a>
+          <a class="btn btn-secondary" href="#contact">Contact</a>
         </div>
+      </div>
+    </section>
+
+    <section id="products" class="products" aria-labelledby="products-title">
+      <div class="container">
+        <h2 id="products-title">Products</h2>
+        <div class="product-grid" role="list">
+          <article class="product-card" role="listitem">
+            <div class="product-content">
+              <h3>PentaGraph</h3>
+              <p class="tagline">5-Band Graphic EQ Plugin</p>
+              <p class="blurb">A studio-grade 5-band graphic equaliser modelled on the classic analog circuits found in legendary guitar amplifiers. Calibrated from real hardware measurements, PentaGraph delivers authentic analog EQ behaviour with band independence, gain-dependent Q, and subtle saturation.</p>
+              <ul class="features">
+                <li>Five fixed bands: 80 Hz · 240 Hz · 750 Hz · 2.2 kHz · 6.6 kHz</li>
+                <li>Parallel summing topology for true band independence</li>
+                <li>Analog-modelled saturation via anti-aliased soft clipping</li>
+                <li>Calibrated from real hardware measurements</li>
+                <li>VST3 &amp; AU on macOS · VST3 on Windows</li>
+              </ul>
+              <div class="actions">
+                <a class="btn btn-tertiary" href="./products/pentagraph.html">Learn More →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlight" class="highlight" aria-label="Highlights">
+      <div class="container">
+        <blockquote class="quote">
+          <p>"We model the circuit, not just the curve."</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title">About Nullform Audio</h2>
+        <p>Nullform Audio builds studio-grade audio plugins that bridge the gap between analog character and digital precision. We start with real hardware: measuring, analysing, and understanding the circuits that defined classic tone, then faithfully recreating that behaviour in software. Every plugin is engineered for low CPU usage, zero-latency operation, and seamless integration into professional workflows.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title">Contact &amp; Support</h2>
+        <ul class="contact-list">
+          <li><span>Email:</span> <a href="#" data-email="simon|gitc.digital" aria-label="Email Nullform Audio">Reveal email</a></li>
+          <li><span>Web:</span> <a href="https://gitc.digital" rel="me">gitc.digital</a></li>
+        </ul>
       </div>
     </section>
   </main>

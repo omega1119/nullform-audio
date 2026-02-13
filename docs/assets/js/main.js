@@ -120,6 +120,53 @@
   // Initialize cookie consent
   initCookieConsent();
 
+  // Screenshot modal/lightbox (product pages)
+  function initScreenshotModal() {
+    const screenshotImages = document.querySelectorAll('.product-screenshot img');
+    if (!screenshotImages.length) return;
+
+    const modal = document.createElement('div');
+    modal.className = 'screenshot-modal';
+    modal.innerHTML = '<div class="screenshot-modal__backdrop"></div><div class="screenshot-modal__content"><button class="screenshot-modal__close" aria-label="Close">&times;</button><img class="screenshot-modal__image" alt="" /></div>';
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('.screenshot-modal__image');
+    const closeBtn = modal.querySelector('.screenshot-modal__close');
+    const backdrop = modal.querySelector('.screenshot-modal__backdrop');
+
+    function openModal(imgSrc, imgAlt) {
+      modalImg.src = imgSrc;
+      modalImg.alt = imgAlt || '';
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.product-screenshot img').forEach((img) => {
+      img.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openModal(this.src, this.alt);
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScreenshotModal);
+  } else {
+    initScreenshotModal();
+  }
+
   // Email obfuscation - protects email from scrapers
   // Usage: <a href="#" data-email="user|domain.com">Reveal email</a>
   document.querySelectorAll('[data-email]').forEach((a) => {
