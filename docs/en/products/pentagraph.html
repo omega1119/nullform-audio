@@ -19,7 +19,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>PentaGraph | 5-Band Graphic EQ Plugin | Nullform Audio</title>
-  <meta name="description" content="PentaGraph is a studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit. Available as VST3, AU, and Standalone for macOS, and VST3 for Windows." />
+  <meta name="description" content="PentaGraph is a studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic 5-band graphic EQ circuit found in legendary guitar amplifiers. Available as VST3, AU, and Standalone for macOS, and VST3 for Windows." />
   <meta name="keywords" content="PentaGraph, 5-band graphic EQ, VST3, AU, audio unit, analog EQ plugin, guitar EQ, graphic equaliser, mixing plugin, tone shaping, Nullform Audio" />
   <meta name="author" content="Nullform Audio" />
   <meta name="robots" content="index, follow" />
@@ -48,7 +48,7 @@
     "name": "PentaGraph",
     "operatingSystem": "macOS, Windows",
     "applicationCategory": "MultimediaApplication",
-    "description": "A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit. Calibrated from real hardware measurements with dual-mode operation and analog saturation modelling.",
+    "description": "A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic 5-band graphic EQ circuit found in legendary guitar amplifiers. Calibrated from real hardware measurements with dual-mode operation and analog saturation modelling.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -65,7 +65,7 @@
       "Parallel summing topology for band independence",
       "Analog-modelled saturation via dual-stage ADAA tanh soft clipping (measured mode)",
       "Gain-dependent Q narrowing (measured mode)",
-      "Calibrated from studio measurements of real Mesa-style gyrator EQ hardware",
+      "Calibrated from studio measurements of real 5-band gyrator EQ hardware",
       "Input and output trim with wide range and unity detent",
       "15 factory presets with user preset management",
       "VST3, AU, and Standalone on macOS; VST3 on Windows"
@@ -88,7 +88,7 @@
     <div class="product-hero">
       <div class="product-hero__copy">
         <h1>PentaGraph</h1>
-        <p class="product-lead">A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals using op-amp gyrator circuits. Calibrated from real hardware measurements.</p>
+        <p class="product-lead">A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals using op-amp gyrator circuits. Calibrated from real hardware measurements.</p>
 
         <ul class="product-highlights">
           <li>Five fixed bands: 80 Hz · 240 Hz · 750 Hz · 2.2 kHz · 6.6 kHz</li>
@@ -128,7 +128,7 @@
       <ul>
         <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the contributions are summed — exactly as in the analog circuit's op-amp summing stage. This preserves true band independence, fundamentally different from cascading five peaking biquads in series.</li>
         <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and uniform Q) and <strong>Measured</strong> (hardware-calibrated frequencies, per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
-        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real Mesa-style 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
+        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
         <li><strong>Gain-Dependent Q (Measured Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q — subtle but musically significant.</li>
         <li><strong>Dual-Stage ADAA Saturation (Measured Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping for alias-free harmonics at the base sample rate. Bypassed entirely at low gain settings for zero overhead.</li>
         <li><strong>Pedal-Style Gain Staging:</strong> Input and output trims (−40 to +6 dB) with unity detent at 0 dB, so you can place PentaGraph like an FX-loop EQ. Drive the input trim to push the saturation stages for more analog character.</li>
