@@ -46,34 +46,100 @@
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // Cookie Consent
+  // ── Language Dropdown Injector ──────────────────────────────
+  // Usage: <div class="language-selector"
+  //             data-languages='{"en":"./","de":"../de/"}'
+  //             data-active-lang="en"></div>
+  const LANG_NAMES = {
+    en:'English', de:'Deutsch', es:'Español', fr:'Français',
+    pl:'Polski', ja:'日本語', ko:'한국어', pt:'Português',
+    it:'Italiano', nl:'Nederlands', zh:'中文', ru:'Русский',
+    sv:'Svenska', da:'Dansk', fi:'Suomi', nb:'Norsk',
+    tr:'Türkçe', cs:'Čeština', ro:'Română', hu:'Magyar'
+  };
+  const GLOBE_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" d="M2 16c0 7.72 6.28 14 14 14s14-6.28 14-14S23.72 2 16 2S2 8.28 2 16m2.041-1c.15-1.81.703-3.506 1.568-5h3.55a16 16 0 0 0-1.128 5zm5.994 0a14 14 0 0 1 1.31-5H15v5zM15 17h-4.965a14 14 0 0 0 1.31 5H15zm0 7h-2.494A14 14 0 0 0 15 26.73zm4.005 3.62A12 12 0 0 0 24.94 24h-3.074a16 16 0 0 1-2.86 3.62M22.84 22h3.55v.002A11.9 11.9 0 0 0 27.959 17h-3.99a16 16 0 0 1-1.13 5m-.875-5a14 14 0 0 1-1.31 5H17v-5zm2.004-2h3.99a11.9 11.9 0 0 0-1.569-5.002V10h-3.55a16 16 0 0 1 1.13 5m-3.315-5a14 14 0 0 1 1.31 5H17v-5zm1.212-2h3.073a12 12 0 0 0-5.926-3.618A16 16 0 0 1 21.865 8M17 5.27V8h2.494A14 14 0 0 0 17 5.27m-2 0A14 14 0 0 0 12.506 8H15zM17 24v2.73A14 14 0 0 0 19.494 24zM5.609 22h3.554a16 16 0 0 1-1.132-5H4.04c.15 1.81.703 3.506 1.568 5M13 27.621A16 16 0 0 1 10.14 24H7.06a12 12 0 0 0 5.941 3.621M10.134 8a16 16 0 0 1 2.853-3.617A12 12 0 0 0 7.061 8z" clip-rule="evenodd"/></svg>';
+
+  function initLanguageDropdowns() {
+    document.querySelectorAll('.language-selector[data-languages]').forEach((el) => {
+      let langs;
+      try { langs = JSON.parse(el.getAttribute('data-languages')); } catch { return; }
+      const activeLang = (el.getAttribute('data-active-lang') || '').toLowerCase();
+      const keys = Object.keys(langs);
+      if (!keys.length) return;
+
+      const btn = document.createElement('button');
+      btn.className = 'language-btn';
+      btn.setAttribute('aria-label', 'Change language');
+      btn.setAttribute('title', 'Change language');
+      btn.innerHTML = GLOBE_SVG;
+
+      const dropdown = document.createElement('div');
+      dropdown.className = 'language-dropdown';
+      keys.forEach((code) => {
+        const a = document.createElement('a');
+        a.className = 'language-option';
+        a.setAttribute('href', langs[code]);
+        a.setAttribute('lang', code);
+        a.textContent = LANG_NAMES[code] || code;
+        if (code === activeLang) a.classList.add('active');
+        dropdown.appendChild(a);
+      });
+
+      el.innerHTML = '';
+      el.appendChild(btn);
+      el.appendChild(dropdown);
+    });
+  }
+  initLanguageDropdowns();
+
+  // ── Cookie Consent Injector ──────────────────────────────
+  // Usage: <body data-cookie-consent>
+  // Reads <html lang> to select translated strings.
+  // Privacy-policy href auto-computed from URL path.
+  const COOKIE_STRINGS = {
+    en: { text: 'We use cookies to analyze site traffic and improve your experience. By clicking "Accept", you consent to our use of cookies.', accept: 'Accept', deny: 'Deny', privacy: 'Privacy Policy' }
+  };
+
   function initCookieConsent() {
-    const consentBanner = document.querySelector('.cookie-consent');
-    if (!consentBanner) return;
+    if (!document.body.hasAttribute('data-cookie-consent')) return;
 
-    const acceptBtn = consentBanner.querySelector('.cookie-consent__btn--accept');
-    const denyBtn = consentBanner.querySelector('.cookie-consent__btn--deny');
+    const lang = (document.documentElement.getAttribute('lang') || 'en').toLowerCase().split('-')[0];
+    const s = COOKIE_STRINGS[lang] || COOKIE_STRINGS.en;
+    const privacyHref = window.location.pathname.includes('/products/') ? '../privacy.html' : './privacy.html';
 
-    // Check if user has already made a choice
-    const consent = localStorage.getItem('cookieConsent');
-    
+    const banner = document.createElement('div');
+    banner.className = 'cookie-consent';
+    banner.innerHTML =
+      '<div class="cookie-consent__content">' +
+        '<div class="cookie-consent__text">' +
+          s.text + ' <a href="' + privacyHref + '">' + s.privacy + '</a>' +
+        '</div>' +
+        '<div class="cookie-consent__buttons">' +
+          '<button class="cookie-consent__btn cookie-consent__btn--accept">' + s.accept + '</button>' +
+          '<button class="cookie-consent__btn cookie-consent__btn--deny">' + s.deny + '</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(banner);
+
+    const acceptBtn = banner.querySelector('.cookie-consent__btn--accept');
+    const denyBtn = banner.querySelector('.cookie-consent__btn--deny');
+    const consent = (() => { try { return localStorage.getItem('cookieConsent'); } catch { return null; } })();
+
     if (!consent) {
-      // Show banner if no choice has been made
-      consentBanner.classList.add('show');
+      banner.classList.add('show');
     } else if (consent === 'accepted') {
-      // Enable analytics if previously accepted
       enableAnalytics();
     }
 
-    acceptBtn?.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'accepted');
-      consentBanner.classList.remove('show');
+    acceptBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cookieConsent', 'accepted'); } catch { /* ignore */ }
+      banner.classList.remove('show');
       enableAnalytics();
     });
 
-    denyBtn?.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'denied');
-      consentBanner.classList.remove('show');
+    denyBtn.addEventListener('click', () => {
+      try { localStorage.setItem('cookieConsent', 'denied'); } catch { /* ignore */ }
+      banner.classList.remove('show');
       disableAnalytics();
     });
   }

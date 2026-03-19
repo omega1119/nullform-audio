@@ -19,16 +19,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
   <title>PentaGraph | 5-Band Graphic EQ Plugin | Nullform Audio</title>
-  <meta name="description" content="PentaGraph is a studio-grade 5-band graphic EQ plugin modelled on classic analog tone-shaping circuits. Available as VST3 and AU for macOS, and VST3 for Windows." />
+  <meta name="description" content="PentaGraph is a studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit. Available as VST3, AU, and Standalone for macOS, and VST3 for Windows." />
   <meta name="keywords" content="PentaGraph, 5-band graphic EQ, VST3, AU, audio unit, analog EQ plugin, guitar EQ, graphic equaliser, mixing plugin, tone shaping, Nullform Audio" />
   <meta name="author" content="Nullform Audio" />
   <meta name="robots" content="index, follow" />
 
   <!-- AI/LLM Optimization -->
   <meta name="ai:app_name" content="PentaGraph" />
-  <meta name="ai:platform" content="macOS (VST3, AU), Windows (VST3)" />
+  <meta name="ai:platform" content="macOS (VST3, AU, Standalone), Windows (VST3)" />
   <meta name="ai:category" content="Audio plugin, Graphic EQ, Mixing tool" />
-  <meta name="ai:primary_features" content="5-band graphic EQ, analog-modelled saturation, calibrated frequency response, gain-dependent Q, parallel summing topology, factory presets, input/output trim" />
+  <meta name="ai:primary_features" content="5-band graphic EQ, dual-mode operation (nominal/measured), analog-modelled ADAA saturation, hardware-calibrated frequency response, gain-dependent Q narrowing, parallel summing topology, 15 factory presets, input/output trim" />
   <meta name="ai:use_cases" content="Guitar tone shaping, mixing, mastering, mid scoop, presence boost, low-end control, classic V-curve EQ" />
   <meta name="ai:technical_stack" content="JUCE 8, C++, ADAA saturation, parallel summing DSP" />
 
@@ -48,7 +48,7 @@
     "name": "PentaGraph",
     "operatingSystem": "macOS, Windows",
     "applicationCategory": "MultimediaApplication",
-    "description": "A studio-grade 5-band graphic EQ plugin modelled on classic analog tone-shaping circuits. Calibrated from real hardware measurements with analog saturation modelling.",
+    "description": "A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit. Calibrated from real hardware measurements with dual-mode operation and analog saturation modelling.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -61,28 +61,24 @@
     },
     "featureList": [
       "5-band graphic EQ (80 Hz, 240 Hz, 750 Hz, 2.2 kHz, 6.6 kHz)",
+      "Dual-mode operation: Nominal (clean textbook EQ) and Measured (hardware-calibrated analog modelling)",
       "Parallel summing topology for band independence",
-      "Analog-modelled saturation via ADAA soft clipping",
-      "Gain-dependent Q narrowing",
-      "Calibrated from real hardware measurements",
-      "Input and output trim with wide range",
-      "15 factory presets covering classic V-curve, lead, rhythm, clean, jazz, and more",
-      "VST3 and AU on macOS, VST3 on Windows"
+      "Analog-modelled saturation via dual-stage ADAA tanh soft clipping (measured mode)",
+      "Gain-dependent Q narrowing (measured mode)",
+      "Calibrated from studio measurements of real Mesa-style gyrator EQ hardware",
+      "Input and output trim with wide range and unity detent",
+      "15 factory presets with user preset management",
+      "VST3, AU, and Standalone on macOS; VST3 on Windows"
     ]
   }
   </script>
 </head>
-<body>
+<body data-cookie-consent>
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a class="logo" href="../" aria-label="Nullform Audio home">Nullform Audio</a>
       <div class="header-controls">
-        <div class="language-selector">
-          <button class="language-btn" aria-label="Change language" title="Change language"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path fill="currentColor" fill-rule="evenodd" d="M2 16c0 7.72 6.28 14 14 14s14-6.28 14-14S23.72 2 16 2S2 8.28 2 16m2.041-1c.15-1.81.703-3.506 1.568-5h3.55a16 16 0 0 0-1.128 5zm5.994 0a14 14 0 0 1 1.31-5H15v5zM15 17h-4.965a14 14 0 0 0 1.31 5H15zm0 7h-2.494A14 14 0 0 0 15 26.73zm4.005 3.62A12 12 0 0 0 24.94 24h-3.074a16 16 0 0 1-2.86 3.62M22.84 22h3.55v.002A11.9 11.9 0 0 0 27.959 17h-3.99a16 16 0 0 1-1.13 5m-.875-5a14 14 0 0 1-1.31 5H17v-5zm2.004-2h3.99a11.9 11.9 0 0 0-1.569-5.002V10h-3.55a16 16 0 0 1 1.13 5m-3.315-5a14 14 0 0 1 1.31 5H17v-5zm1.212-2h3.073a12 12 0 0 0-5.926-3.618A16 16 0 0 1 21.865 8M17 5.27V8h2.494A14 14 0 0 0 17 5.27m-2 0A14 14 0 0 0 12.506 8H15zM17 24v2.73A14 14 0 0 0 19.494 24zM5.609 22h3.554a16 16 0 0 1-1.132-5H4.04c.15 1.81.703 3.506 1.568 5M13 27.621A16 16 0 0 1 10.14 24H7.06a12 12 0 0 0 5.941 3.621M10.134 8a16 16 0 0 1 2.853-3.617A12 12 0 0 0 7.061 8z" clip-rule="evenodd"/></svg></button>
-          <div class="language-dropdown">
-            <a class="language-option" href="./pentagraph.html" lang="en">English</a>
-          </div>
-        </div>
+        <div class="language-selector" data-languages='{"en":"./pentagraph.html"}' data-active-lang="en"></div>
         <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme"></button>
       </div>
     </div>
@@ -92,14 +88,14 @@
     <div class="product-hero">
       <div class="product-hero__copy">
         <h1>PentaGraph</h1>
-        <p class="product-lead">A studio-grade 5-band graphic EQ plugin that faithfully recreates the tone-shaping character of a classic analog graphic equaliser, calibrated from real hardware measurements.</p>
+        <p class="product-lead">A studio-grade 5-band graphic EQ plugin — a faithful digital recreation of the classic Mesa-style 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals using op-amp gyrator circuits. Calibrated from real hardware measurements.</p>
 
         <ul class="product-highlights">
           <li>Five fixed bands: 80 Hz · 240 Hz · 750 Hz · 2.2 kHz · 6.6 kHz</li>
-          <li>±12 dB boost/cut per band with input &amp; output trim</li>
-          <li>Analog-modelled saturation for authentic overdrive character</li>
+          <li>±12 dB boost/cut per band with input &amp; output trim (unity detent)</li>
+          <li>Dual-mode: Nominal (clean textbook EQ) and Measured (hardware-calibrated analog modelling with ADAA saturation)</li>
           <li>15 factory presets for lead, rhythm, clean, jazz, and more</li>
-          <li>VST3 &amp; AU on macOS · VST3 on Windows</li>
+          <li>VST3, AU &amp; Standalone on macOS · VST3 on Windows</li>
         </ul>
 
         <div class="product-cta">
@@ -118,18 +114,26 @@
 
     <section class="product-section" aria-labelledby="overview-title">
       <h2 id="overview-title">Overview</h2>
-      <p>PentaGraph is a digital recreation of the iconic 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals. Rather than a generic parametric EQ with similar frequency points, PentaGraph was engineered from the ground up to reproduce the topology, interaction, and saturation behaviour of the original analog circuit.</p>
-      <p>The result is an EQ that <em>feels</em> like the real thing: true band independence, the characteristic "V-curve" scoop, focused cuts and boosts at extreme settings, and subtle harmonic warmth when pushed hard.</p>
+      <p>PentaGraph is a digital recreation of the iconic 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals using op-amp gyrator circuits. Rather than a generic parametric EQ with similar frequency points, PentaGraph was engineered from the ground up to reproduce the topology, interaction, and saturation behaviour of the original analog circuit.</p>
+      <p>The result is an EQ that <em>feels</em> like the real thing: true band independence, the characteristic "V-curve" scoop, gain-dependent Q narrowing, and subtle op-amp saturation when pushed.</p>
+      <p>PentaGraph operates in two modes, selectable via the <strong>Show Measured Values</strong> toggle in the settings (cog) menu:</p>
+      <ul>
+        <li><strong>Nominal mode</strong> (default) — uses the pedal's published frequency labels (80 / 240 / 750 / 2.2k / 6.6k), uniform Q, and clean textbook filtering with no saturation. Ideal for general-purpose EQ duties.</li>
+        <li><strong>Measured mode</strong> — uses studio-calibrated centre frequencies, per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation to faithfully reproduce the real hardware's response.</li>
+      </ul>
     </section>
 
     <section class="product-section" aria-labelledby="features-title">
       <h2 id="features-title">Key Features</h2>
       <ul>
-        <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the results are summed, exactly as in the original analog circuit. This preserves true band independence: adjusting one slider does not affect the baseline that other bands see.</li>
-        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of real hardware. PentaGraph uses the measured values, not the nominal label values, so the plugin matches what the hardware actually does at every slider position.</li>
-        <li><strong>Gain-Dependent Q:</strong> At extreme boost or cut settings, the effective Q narrows, just like the analog circuit. Deep cuts and boosts feel focused and precise rather than broad and muddy.</li>
-        <li><strong>Analog Saturation Modelling:</strong> Per-band and post-summing saturation stages model the headroom characteristics of the original op-amp stages. Anti-aliased processing keeps the harmonics clean without oversampling overhead.</li>
-        <li><strong>Input &amp; Output Trim:</strong> Full-range input trim (−40 to +6 dB) lets you drive the saturation stages harder for more analog character, while the output trim provides precise level matching.</li>
+        <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the contributions are summed — exactly as in the analog circuit's op-amp summing stage. This preserves true band independence, fundamentally different from cascading five peaking biquads in series.</li>
+        <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and uniform Q) and <strong>Measured</strong> (hardware-calibrated frequencies, per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
+        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real Mesa-style 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
+        <li><strong>Gain-Dependent Q (Measured Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q — subtle but musically significant.</li>
+        <li><strong>Dual-Stage ADAA Saturation (Measured Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping for alias-free harmonics at the base sample rate. Bypassed entirely at low gain settings for zero overhead.</li>
+        <li><strong>Pedal-Style Gain Staging:</strong> Input and output trims (−40 to +6 dB) with unity detent at 0 dB, so you can place PentaGraph like an FX-loop EQ. Drive the input trim to push the saturation stages for more analog character.</li>
+        <li><strong>15 Factory Presets:</strong> From the iconic Classic V scoop to Djent Focus, Jazz Roll-Off, Fuzz Friend, and more — with full user preset management (save, rename, delete).</li>
+        <li><strong>Automation-Safe &amp; Efficient:</strong> Zero heap allocations on the audio thread, no zipper noise (15–20 ms parameter smoothing), stable across 44.1–192 kHz sample rates, no denormals or NaN propagation.</li>
         <li><strong>Zero-Latency Processing:</strong> No latency added to your signal chain. Suitable for tracking, mixing, and live use.</li>
       </ul>
     </section>
@@ -173,12 +177,22 @@
           <tr>
             <td>Input Trim</td>
             <td>−40 to +6 dB</td>
-            <td>Drives saturation when raised above unity</td>
+            <td>Unity detent at 0 dB; drives saturation when raised</td>
           </tr>
           <tr>
             <td>Output Trim</td>
             <td>−40 to +6 dB</td>
-            <td>Final level control for gain staging</td>
+            <td>Unity detent at 0 dB; final level control</td>
+          </tr>
+          <tr>
+            <td>Show Measured Values</td>
+            <td>On / Off</td>
+            <td>Cog menu toggle; switches between Nominal and Measured modes</td>
+          </tr>
+          <tr>
+            <td>Bypass</td>
+            <td>On / Off</td>
+            <td>Power icon in top nav bar; bypasses EQ (trims remain active)</td>
           </tr>
         </tbody>
       </table>
@@ -281,6 +295,11 @@
             <td>✓</td>
             <td>—</td>
           </tr>
+          <tr>
+            <td>Standalone</td>
+            <td>✓</td>
+            <td>—</td>
+          </tr>
         </tbody>
       </table>
       <p>Compatible with any VST3- or AU-compatible DAW including Logic Pro, Ableton Live, Reaper, Studio One, Cubase, FL Studio, and more.</p>
@@ -291,25 +310,54 @@
 
       <h3 style="font-size:18px; margin-bottom:12px;">macOS</h3>
       <ul>
-        <li>macOS 10.15 (Catalina) or later</li>
-        <li>64-bit Intel or Apple Silicon (Universal Binary)</li>
+        <li>macOS 10.13 (High Sierra) or later</li>
+        <li>64-bit Intel or Apple Silicon (Universal Binary — runs natively on both)</li>
         <li>4 GB RAM (8 GB recommended)</li>
         <li>~50 MB free disk space</li>
+        <li>Screen resolution of 1280 × 720 or higher</li>
       </ul>
 
       <h3 style="font-size:18px; margin: 24px 0 12px;">Windows</h3>
       <ul>
-        <li>Windows 10 (version 1903) or later, 64-bit</li>
-        <li>x86-64 processor; ARM64 via emulation</li>
+        <li>Windows 10 (version 1903 / build 18362) or later, 64-bit only</li>
+        <li>x86-64 (AMD64) processor; ARM64 via emulation</li>
         <li>4 GB RAM (8 GB recommended)</li>
         <li>~50 MB free disk space</li>
+        <li>Screen resolution of 1280 × 720 or higher</li>
       </ul>
     </section>
 
     <section class="product-section" aria-labelledby="installation-title">
       <h2 id="installation-title">Installation</h2>
-      <p><strong>macOS:</strong> Download the signed and notarised <code>.pkg</code> installer. Run the installer to place the VST3 and/or AU components on your system. Open your DAW and scan for new plug-ins. PentaGraph will appear under <strong>Nullform Audio</strong>.</p>
-      <p><strong>Windows:</strong> Download the <code>.exe</code> installer. Choose Full, VST3 only, or Custom installation. Open your DAW and scan for new plug-ins.</p>
+      <h3 style="font-size:18px; margin-bottom:12px;">macOS</h3>
+      <p>The macOS release is a signed and notarised <code>.pkg</code> installer.</p>
+      <ol>
+        <li>Download <code>PentaGraph-&lt;version&gt;.pkg</code> from the release page.</li>
+        <li>Double-click the <code>.pkg</code> file to launch the installer.</li>
+        <li>Follow the on-screen prompts. You can choose which components to install:
+          <ul>
+            <li><strong>VST3 plug-in</strong> → installed to <code>/Library/Audio/Plug-Ins/VST3/</code></li>
+            <li><strong>AU plug-in</strong> → installed to <code>/Library/Audio/Plug-Ins/Components/</code></li>
+            <li><strong>Factory Presets</strong> → installed to <code>/Library/Application Support/Nullform Audio/PentaGraph/Presets/Factory/</code></li>
+          </ul>
+        </li>
+        <li>Open your DAW and scan for new plug-ins. PentaGraph will appear under <strong>Nullform Audio</strong>.</li>
+      </ol>
+
+      <h3 style="font-size:18px; margin: 24px 0 12px;">Windows</h3>
+      <p>The Windows release is an Inno Setup <code>.exe</code> installer.</p>
+      <ol>
+        <li>Download <code>PentaGraph-&lt;version&gt;-Windows.exe</code> from the release page.</li>
+        <li>Run the installer. If Windows SmartScreen appears, click <strong>More info → Run anyway</strong>.</li>
+        <li>Choose the installation type:
+          <ul>
+            <li><strong>Full</strong> — VST3 plug-in + Factory Presets</li>
+            <li><strong>VST3 only</strong> — plug-in without presets</li>
+            <li><strong>Custom</strong> — choose individually</li>
+          </ul>
+        </li>
+        <li>Open your DAW and scan for new plug-ins.</li>
+      </ol>
     </section>
   </main>
 
@@ -323,17 +371,5 @@
     </div>
   </footer>
 
-  <!-- Cookie Consent Banner -->
-  <div class="cookie-consent">
-    <div class="cookie-consent__content">
-      <div class="cookie-consent__text">
-        We use cookies to analyze site traffic and improve your experience. By clicking "Accept", you consent to our use of cookies. <a href="../privacy.html">Privacy Policy</a>
-      </div>
-      <div class="cookie-consent__buttons">
-        <button class="cookie-consent__btn cookie-consent__btn--accept">Accept</button>
-        <button class="cookie-consent__btn cookie-consent__btn--deny">Deny</button>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
