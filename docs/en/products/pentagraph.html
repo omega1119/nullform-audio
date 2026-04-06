@@ -28,7 +28,7 @@
   <meta name="ai:app_name" content="PentaGraph" />
   <meta name="ai:platform" content="macOS (VST3, AU, Standalone), Windows (VST3)" />
   <meta name="ai:category" content="Audio plugin, Graphic EQ, Mixing tool" />
-  <meta name="ai:primary_features" content="5-band graphic EQ, dual-mode operation (nominal/measured), analog-modelled ADAA saturation, hardware-calibrated frequency response, gain-dependent Q narrowing, parallel summing topology, 15 factory presets, input/output trim" />
+  <meta name="ai:primary_features" content="5-band graphic EQ, dual-mode operation (nominal/analog), analog-modelled ADAA saturation, hardware-calibrated frequency response, gain-dependent Q narrowing, parallel summing topology, 15 factory presets, input/output trim" />
   <meta name="ai:use_cases" content="Guitar tone shaping, mixing, mastering, mid scoop, presence boost, low-end control, classic V-curve EQ" />
   <meta name="ai:technical_stack" content="JUCE 8, C++, ADAA saturation, parallel summing DSP" />
 
@@ -61,7 +61,7 @@
     },
     "featureList": [
       "5-band graphic EQ (80 Hz, 240 Hz, 750 Hz, 2.2 kHz, 6.6 kHz)",
-      "Dual-mode operation: Nominal (clean textbook EQ) and Measured (hardware-calibrated analog modelling)",
+      "Dual-mode operation: Nominal (clean textbook EQ) and Analog (hardware-calibrated analog modelling)",
       "Parallel summing topology for band independence",
       "Analog-modelled saturation via dual-stage ADAA tanh soft clipping (measured mode)",
       "Gain-dependent Q narrowing (measured mode)",
@@ -93,7 +93,7 @@
         <ul class="product-highlights">
           <li>Five fixed bands: 80 Hz · 240 Hz · 750 Hz · 2.2 kHz · 6.6 kHz</li>
           <li>±12 dB boost/cut per band with input &amp; output trim (unity detent)</li>
-          <li>Dual-mode: Nominal (clean textbook EQ) and Measured (hardware-calibrated analog modelling with ADAA saturation)</li>
+          <li>Dual-mode: Nominal (clean textbook EQ) and Analog (hardware-calibrated analog modelling with ADAA saturation)</li>
           <li>15 factory presets for lead, rhythm, clean, jazz, and more</li>
           <li>VST3, AU &amp; Standalone on macOS · VST3 on Windows</li>
         </ul>
@@ -116,10 +116,10 @@
       <h2 id="overview-title">Overview</h2>
       <p>PentaGraph is a digital recreation of the iconic 5-band graphic EQ circuit found in legendary guitar amplifiers and widely recreated as standalone pedals using op-amp gyrator circuits. Rather than a generic parametric EQ with similar frequency points, PentaGraph was engineered from the ground up to reproduce the topology, interaction, and saturation behaviour of the original analog circuit.</p>
       <p>The result is an EQ that <em>feels</em> like the real thing: true band independence, the characteristic "V-curve" scoop, gain-dependent Q narrowing, and subtle op-amp saturation when pushed.</p>
-      <p>PentaGraph operates in two modes, selectable via the <strong>Show Measured Values</strong> toggle in the settings (cog) menu:</p>
+      <p>PentaGraph operates in two modes, selectable via the <strong>Analog Modeling</strong> toggle in the settings (cog) menu:</p>
       <ul>
-        <li><strong>Nominal mode</strong> (default) — uses the pedal's published frequency labels (80 / 240 / 750 / 2.2k / 6.6k), uniform Q, and clean textbook filtering with no saturation. Ideal for general-purpose EQ duties.</li>
-        <li><strong>Measured mode</strong> — uses studio-calibrated centre frequencies, per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation to faithfully reproduce the real hardware's response.</li>
+        <li><strong>Nominal mode</strong> (default) — uses the pedal’s published frequency labels (80 / 240 / 750 / 2.2k / 6.6k), uniform Q, and clean textbook filtering with no saturation. Ideal for general-purpose EQ duties.</li>
+        <li><strong>Analog mode</strong> — uses studio-calibrated centre frequencies, per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation to faithfully reproduce the real hardware’s response.</li>
       </ul>
     </section>
 
@@ -127,10 +127,10 @@
       <h2 id="features-title">Key Features</h2>
       <ul>
         <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the contributions are summed — exactly as in the analog circuit's op-amp summing stage. This preserves true band independence, fundamentally different from cascading five peaking biquads in series.</li>
-        <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and uniform Q) and <strong>Measured</strong> (hardware-calibrated frequencies, per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
+        <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and uniform Q) and <strong>Analog</strong> (hardware-calibrated frequencies, per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
         <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
-        <li><strong>Gain-Dependent Q (Measured Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q — subtle but musically significant.</li>
-        <li><strong>Dual-Stage ADAA Saturation (Measured Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping for alias-free harmonics at the base sample rate. Bypassed entirely at low gain settings for zero overhead.</li>
+        <li><strong>Gain-Dependent Q (Analog Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q — subtle but musically significant.</li>
+        <li><strong>Dual-Stage ADAA Saturation (Analog Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping for alias-free harmonics at the base sample rate. Bypassed entirely at low gain settings for zero overhead.</li>
         <li><strong>Pedal-Style Gain Staging:</strong> Input and output trims (−40 to +6 dB) with unity detent at 0 dB, so you can place PentaGraph like an FX-loop EQ. Drive the input trim to push the saturation stages for more analog character.</li>
         <li><strong>15 Factory Presets:</strong> From the iconic Classic V scoop to Djent Focus, Jazz Roll-Off, Fuzz Friend, and more — with full user preset management (save, rename, delete).</li>
         <li><strong>Automation-Safe &amp; Efficient:</strong> Zero heap allocations on the audio thread, no zipper noise (15–20 ms parameter smoothing), stable across 44.1–192 kHz sample rates, no denormals or NaN propagation.</li>
@@ -185,9 +185,9 @@
             <td>Unity detent at 0 dB; final level control</td>
           </tr>
           <tr>
-            <td>Show Measured Values</td>
+            <td>Analog Modeling</td>
             <td>On / Off</td>
-            <td>Cog menu toggle; switches between Nominal and Measured modes</td>
+            <td>Cog menu toggle; switches between Nominal and Analog modes. Fully automatable and saved with presets.</td>
           </tr>
           <tr>
             <td>Bypass</td>

@@ -28,7 +28,7 @@
   <meta name="ai:app_name" content="DecayChain" />
   <meta name="ai:platform" content="macOS (VST3, AU), Windows (VST3)" />
   <meta name="ai:category" content="Audio plugin, Bit-crusher, Wavetable distortion, Lo-fi" />
-  <meta name="ai:primary_features" content="Bit-crusher (depth and mask modes), 265 original wavetables, hex table index, table morph, preamp with soft-clip, tilt EQ, sample-rate reducer, envelope routing, ADAA processing, safety LPF, 21 factory presets" />
+  <meta name="ai:primary_features" content="Bit-crusher (1-16 bit depth and mask modes), 265 original wavetables, hex table index, table morph, preamp with soft-clip, tilt EQ, pre HP/LP filters, sample-rate reducer, envelope routing, ADAA processing, safety LPF, 21 factory presets" />
   <meta name="ai:use_cases" content="Lo-fi effects, bit-crushing, wavetable distortion, sound design, experimental audio, industrial textures, bass destruction" />
   <meta name="ai:technical_stack" content="JUCE 8, C++, ADAA anti-aliasing, wavetable synthesis" />
 
@@ -60,11 +60,12 @@
       "url": "https://nullform.audio"
     },
     "featureList": [
-      "Bit-crusher with Depth (1–8 bits) and Mask (0–255) modes",
+      "Bit-crusher with Depth (1–16 bits) and Mask (0–255) modes",
       "265 procedurally generated wavetables with hex index (00–108)",
       "Smooth table morph between adjacent wavetables",
       "Preamp (±36 dB) with soft-clip guard",
       "Tilt EQ with true bypass when centred",
+      "Pre HP (20 Hz – 5 kHz) and Pre LP (1 kHz – 20 kHz) input filters",
       "Sample-rate reducer (~260 Hz → 192 kHz) with Fine mode",
       "Envelope routing to SRR, Bits, or both",
       "Dual DSP modes: Legacy and ADAA",
@@ -93,7 +94,7 @@
         <p class="product-lead">A modern bit-crusher and wavetable distortion plugin. Preamp/tone stage up front, flexible bit logic pre or post the wavetable mapper, 265 original wavetables with hex table index, table morph, envelope routing, and an optional safety LPF. Inspired by the feel of hardware bit-crusher workflows.</p>
 
         <ul class="product-highlights">
-          <li>Bit-crusher with Depth (1–8 bits) and Mask (0–255 hex bitmask) modes</li>
+          <li>Bit-crusher with Depth (1–16 bits) and Mask (0–255 hex bitmask) modes</li>
           <li>265 procedurally generated wavetables with hex index &amp; smooth table morph</li>
           <li>Preamp (±36 dB), tilt EQ, sample-rate reducer, envelope routing</li>
           <li>Dual DSP modes: Legacy (crunchy lo-fi) and ADAA (anti-aliased)</li>
@@ -132,10 +133,13 @@
         <li><strong>Input</strong> — incoming audio signal</li>
         <li><strong>Preamp</strong> — ±36 dB gain with soft-clip guard at extremes</li>
         <li><strong>Tone</strong> — tilt EQ at 800 Hz, true bypass when centred</li>
+        <li><strong>Pre HP</strong> — pre high-pass filter (20 Hz – 5 kHz)</li>
+        <li><strong>Pre LP</strong> — pre low-pass filter (1 kHz – 20 kHz)</li>
         <li><strong>SRR</strong> — sample-rate reducer (~260 Hz → 192 kHz), with optional Fine mode</li>
-        <li><strong>Bit Section</strong> — 1–8 bit depth or 0–255 hex bitmask, pre or post wavetable</li>
+        <li><strong>Bit Section</strong> — 1–16 bit depth or 0–255 hex bitmask, pre or post wavetable</li>
         <li><strong>Wavetable Mapper</strong> — 265 × 256-point tables, hex index 00–108</li>
         <li><strong>Morph</strong> — smooth blend toward adjacent table (0.0–1.0)</li>
+        <li><strong>Table Mix</strong> — wavetable stage dry/wet blend (0–100%)</li>
         <li><strong>Dry/Wet Mix</strong> — equal-power crossfade</li>
         <li><strong>Safety LPF</strong> — optional post-processing low-pass filter</li>
         <li><strong>Output Trim</strong> — −24 to +12 dB final level control</li>
@@ -145,12 +149,13 @@
     <section class="product-section" aria-labelledby="features-title">
       <h2 id="features-title">Key Features</h2>
       <ul>
-        <li><strong>Dual Bit-Crush Modes:</strong> Standard bit-depth reduction (1–8 bits) for classic staircase quantisation, or hex bitmask mode (0–255) for XOR-like logic patterns and unusual harmonic textures.</li>
+        <li><strong>Dual Bit-Crush Modes:</strong> Standard bit-depth reduction (1–16 bits) for classic staircase quantisation, or hex bitmask mode (0–255) for XOR-like logic patterns and unusual harmonic textures.</li>
         <li><strong>Pre/Post Bit Placement:</strong> Run the bit section before the wavetable for crushed-then-shaped tones, or after for shaped-then-crushed results. Each ordering produces fundamentally different distortion character.</li>
         <li><strong>265 Original Wavetables:</strong> All procedurally generated (256 samples each, float32), embedded via BinaryData with no external files. Hex index display (00–108) for precise table selection.</li>
         <li><strong>Smooth Table Morph:</strong> Blend seamlessly between adjacent wavetables for evolving timbral transitions. In ADAA mode, anti-aliasing is evaluated independently on both tables and linearly blended.</li>
         <li><strong>Envelope Routing:</strong> Route an internal envelope to the sample-rate reducer, bit depth, or both, with bipolar modulation amounts (−1 to +1) for dynamic, input-responsive distortion.</li>
         <li><strong>Dual DSP Modes:</strong> Legacy mode for raw, crunchy lo-fi character. ADAA mode combines Simpson's rule on the bit crusher and LUT integral anti-aliasing on the wavetable mapper.</li>
+        <li><strong>Pre Filters:</strong> Adjustable high-pass (20 Hz – 5 kHz) and low-pass (1 kHz – 20 kHz) for sculpting the input signal before the crush stages.</li>
         <li><strong>Preamp &amp; Tone Stage:</strong> ±36 dB preamp with soft-clipping drives the downstream distortion stages. Tilt EQ at 800 Hz shapes the input spectrum before crushing.</li>
         <li><strong>Safety LPF:</strong> Optional first-order low-pass (18 kHz default) tames harsh upper harmonics when needed, without affecting the core distortion character.</li>
         <li><strong>Zero-Latency Processing:</strong> No latency added to your signal chain. Zero heap allocations on the audio thread, denormal/NaN guards on every nonlinear boundary.</li>
@@ -190,8 +195,18 @@
             <td>Fine-resolution SRR mode</td>
           </tr>
           <tr>
+            <td>Pre HP</td>
+            <td>20 Hz – 5 kHz</td>
+            <td>Pre high-pass filter</td>
+          </tr>
+          <tr>
+            <td>Pre LP</td>
+            <td>1 kHz – 20 kHz</td>
+            <td>Pre low-pass filter</td>
+          </tr>
+          <tr>
             <td>Bits</td>
-            <td>1–8 / 0–255</td>
+            <td>1–16 / 0–255</td>
             <td>Bit depth (Depth mode) or hex bitmask (Mask mode)</td>
           </tr>
           <tr>
@@ -213,6 +228,16 @@
             <td>Morph</td>
             <td>0.0–1.0</td>
             <td>Blend toward next adjacent table</td>
+          </tr>
+          <tr>
+            <td>Table Mix</td>
+            <td>0–100%</td>
+            <td>Wavetable stage dry/wet blend</td>
+          </tr>
+          <tr>
+            <td>Table Bypass</td>
+            <td>On / Off</td>
+            <td>Bypass the wavetable stage entirely</td>
           </tr>
           <tr>
             <td>Env→SRR On</td>
