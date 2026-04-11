@@ -443,6 +443,27 @@ main {
 .footer-links a:hover {
   color: var(--text);
 }
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer-social a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+.footer-social a:hover {
+  color: var(--text);
+}
+.footer-social svg {
+  width: 20px;
+  height: 20px;
+}
 
 /* ==========================================
    Navigation
