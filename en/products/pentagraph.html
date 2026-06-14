@@ -28,9 +28,9 @@
   <meta name="ai:app_name" content="PentaGraph" />
   <meta name="ai:platform" content="macOS (VST3, AU, Standalone), Windows (VST3)" />
   <meta name="ai:category" content="Audio plugin, Graphic EQ, Mixing tool" />
-  <meta name="ai:primary_features" content="5-band graphic EQ, dual-mode operation (nominal/analog), analog-modelled ADAA saturation, hardware-calibrated frequency response, gain-dependent Q narrowing, parallel summing topology, 15 factory presets, input/output trim" />
+  <meta name="ai:primary_features" content="5-band graphic EQ, dual-mode operation (nominal/analog), user-adjustable per-band Q (nominal mode), analog-modelled ADAA saturation with 2x IIR oversampling, hardware-calibrated frequency response, gain-dependent Q narrowing, parallel summing topology, real-time spectrum analyser and frequency-response curve, 15 factory presets, input/output trim" />
   <meta name="ai:use_cases" content="Guitar tone shaping, mixing, mastering, mid scoop, presence boost, low-end control, classic V-curve EQ" />
-  <meta name="ai:technical_stack" content="JUCE 8, C++, ADAA saturation, parallel summing DSP" />
+  <meta name="ai:technical_stack" content="JUCE 8, C++, ADAA saturation, 2x IIR oversampling, parallel summing DSP" />
 
   <link rel="canonical" href="https://nullform.audio/en/products/pentagraph.html" />
 
@@ -62,10 +62,12 @@
     "featureList": [
       "5-band graphic EQ (80 Hz, 240 Hz, 750 Hz, 2.2 kHz, 6.6 kHz)",
       "Dual-mode operation: Nominal (clean textbook EQ) and Analog (hardware-calibrated analog modelling)",
+      "User-adjustable per-band Q in Nominal mode (0.3-6.0, default 0.667)",
       "Parallel summing topology for band independence",
-      "Analog-modelled saturation via dual-stage ADAA tanh soft clipping (measured mode)",
-      "Gain-dependent Q narrowing (measured mode)",
+      "Analog-modelled saturation via dual-stage ADAA tanh soft clipping with 2x IIR oversampling (analog mode)",
+      "Gain-dependent Q narrowing (analog mode)",
       "Calibrated from studio measurements of real 5-band gyrator EQ hardware",
+      "Real-time frequency-response curve with live spectrum analyser and IO ring meters",
       "Input and output trim with wide range and unity detent",
       "15 factory presets with user preset management",
       "VST3, AU, and Standalone on macOS; VST3 on Windows"
@@ -118,19 +120,27 @@
       <p>The result is an EQ that <em>feels</em> like the real thing: true band independence, the characteristic "V-curve" scoop, gain-dependent Q narrowing, and subtle op-amp saturation when pushed.</p>
       <p>PentaGraph operates in two modes, selectable via the <strong>Analog Modeling</strong> toggle in the settings (cog) menu:</p>
       <ul>
-        <li><strong>Nominal mode</strong> (default) — uses the pedal’s published frequency labels (80 / 240 / 750 / 2.2k / 6.6k), uniform Q, and clean textbook filtering with no saturation. Ideal for general-purpose EQ duties.</li>
-        <li><strong>Analog mode</strong> — uses studio-calibrated centre frequencies, per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation to faithfully reproduce the real hardware’s response.</li>
+        <li><strong>Nominal mode</strong> (default) — uses the pedal’s published frequency labels (80 / 240 / 750 / 2.2k / 6.6k) and clean textbook filtering with no saturation. Each band’s Q is <strong>user-adjustable</strong> (range 0.3–6.0, default 0.667), so you can dial the EQ from broad and musical to surgical and notch-like. Ideal for general-purpose EQ duties.</li>
+        <li><strong>Analog mode</strong> — uses studio-calibrated centre frequencies, calibrated per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation (wrapped in 2× IIR oversampling) to faithfully reproduce the real hardware’s response. The user Q controls are bypassed in this mode in favour of the measured values.</li>
       </ul>
+      <p>Analog Modeling is a fully automatable parameter and is saved and restored with presets, so factory and user presets can each specify which mode to use.</p>
+    </section>
+
+    <section class="product-section" aria-labelledby="interface-title">
+      <h2 id="interface-title">Interface</h2>
+      <p>The workbench-style faceplate presents five band sliders, a real-time <strong>frequency-response curve</strong> showing the composite EQ shape with a live spectrum analyser drawn behind it, and <strong>IO ring meters</strong> that animate with the audio thread.</p>
+      <p>Each band exposes a compact Q slider beneath its gain fader; you can also adjust Q by mouse-wheeling directly over the band’s point on the curve display, or via host automation. The preset bar groups settings (including the Analog Modeling toggle) into a tidy section-organised popup, and band points on the curve respond with smooth 120 ms eased transitions on hover and active states.</p>
     </section>
 
     <section class="product-section" aria-labelledby="features-title">
       <h2 id="features-title">Key Features</h2>
       <ul>
         <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the contributions are summed — exactly as in the analog circuit's op-amp summing stage. This preserves true band independence, fundamentally different from cascading five peaking biquads in series.</li>
-        <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and uniform Q) and <strong>Analog</strong> (hardware-calibrated frequencies, per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
+        <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and user-adjustable per-band Q) and <strong>Analog</strong> (hardware-calibrated frequencies, calibrated per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
+        <li><strong>User-Adjustable Per-Band Q (Nominal Mode):</strong> Each band has its own Q control (0.3–6.0, default 0.667), editable via the slider under each fader, by mouse-wheeling over the band’s point on the curve, or via host automation — dial each band from broad and musical to surgical and notch-like.</li>
         <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
         <li><strong>Gain-Dependent Q (Analog Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q — subtle but musically significant.</li>
-        <li><strong>Dual-Stage ADAA Saturation (Analog Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping for alias-free harmonics at the base sample rate. Bypassed entirely at low gain settings for zero overhead.</li>
+        <li><strong>Dual-Stage ADAA Saturation with 2× Oversampling (Analog Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping, wrapped in 2× IIR oversampling (~43 dB image rejection, ~41 dB reduction in naive-<code>tanh</code> aliasing) for clean harmonics with zero reported latency. Per-band drive is envelope-modulated (attack ~1 ms, release ~50 ms) and bypassed entirely at low gain settings for zero overhead.</li>
         <li><strong>Pedal-Style Gain Staging:</strong> Input and output trims (−40 to +6 dB) with unity detent at 0 dB, so you can place PentaGraph like an FX-loop EQ. Drive the input trim to push the saturation stages for more analog character.</li>
         <li><strong>15 Factory Presets:</strong> From the iconic Classic V scoop to Djent Focus, Jazz Roll-Off, Fuzz Friend, and more — with full user preset management (save, rename, delete).</li>
         <li><strong>Automation-Safe &amp; Efficient:</strong> Zero heap allocations on the audio thread, no zipper noise (15–20 ms parameter smoothing), stable across 44.1–192 kHz sample rates, no denormals or NaN propagation.</li>
@@ -175,6 +185,11 @@
             <td>Presence, air, and top-end sparkle</td>
           </tr>
           <tr>
+            <td>Per-band Q (×5)</td>
+            <td>0.3 – 6.0</td>
+            <td>Bandwidth control per band (Nominal mode only); default 0.667. Editable via the slider under each fader, mouse-wheel over the curve point, or host automation.</td>
+          </tr>
+          <tr>
             <td>Input Trim</td>
             <td>−40 to +6 dB</td>
             <td>Unity detent at 0 dB; drives saturation when raised</td>
@@ -196,7 +211,7 @@
           </tr>
         </tbody>
       </table>
-      <p>Double-click any control to reset it to 0 dB.</p>
+      <p>Double-click any gain or trim control to reset it to 0 dB. Double-click a Q control to reset it to 0.667.</p>
     </section>
 
     <section class="product-section" aria-labelledby="presets-title">
@@ -206,68 +221,84 @@
         <thead>
           <tr>
             <th>Preset</th>
+            <th>Analog</th>
             <th>Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Init</td>
+            <td>Off</td>
             <td>Flat: all bands at 0 dB</td>
           </tr>
           <tr>
             <td>Classic V</td>
-            <td>The iconic V-curve: boosted lows and highs, scooped mids</td>
+            <td>On</td>
+            <td>The iconic V-curve with analog modeling: calibrated frequencies, saturation, and Q narrowing</td>
           </tr>
           <tr>
             <td>Lead</td>
-            <td>Upper-mid and presence emphasis for cutting lead tones</td>
+            <td>On</td>
+            <td>Upper-mid and presence emphasis with analog modeling for authentic lead tones</td>
           </tr>
           <tr>
             <td>Solo Push</td>
+            <td>Off</td>
             <td>Mid-forward bump for solos that need to cut through a mix</td>
           </tr>
           <tr>
             <td>Tight Rhythm</td>
+            <td>Off</td>
             <td>Scooped but controlled: tight palm mutes and modern metal rhythm</td>
           </tr>
           <tr>
             <td>Chunk Rhythm</td>
+            <td>Off</td>
             <td>Mild V-curve with low-end weight for chunky rhythm tones</td>
           </tr>
           <tr>
             <td>Djent Focus</td>
+            <td>Off</td>
             <td>Aggressive low cut with upper-mid attack for modern djent/prog</td>
           </tr>
           <tr>
             <td>Bass Contour</td>
+            <td>Off</td>
             <td>Enhanced low end with gentle mid scoop for bass guitar or low tunings</td>
           </tr>
           <tr>
             <td>Fuzz Friend</td>
+            <td>Off</td>
             <td>Tames low-end mud and adds mid focus for pairing with fuzz pedals</td>
           </tr>
           <tr>
             <td>Warm Clean</td>
+            <td>Off</td>
             <td>Rounded highs and a touch of low-mid warmth for clean tones</td>
           </tr>
           <tr>
             <td>Sparkle Clean</td>
+            <td>Off</td>
             <td>Bright and airy clean tone with upper-mid shimmer</td>
           </tr>
           <tr>
             <td>Acoustic Strum</td>
+            <td>Off</td>
             <td>Reduced boominess with presence lift for acoustic or piezo pickups</td>
           </tr>
           <tr>
             <td>Jazz Roll-Off</td>
+            <td>Off</td>
             <td>Low and high rolloff with mid focus for warm jazz voicings</td>
           </tr>
           <tr>
             <td>Fizz Tamer</td>
+            <td>Off</td>
             <td>Subtle presence cut to tame harsh or fizzy high-gain amp sims</td>
           </tr>
           <tr>
             <td>Bedroom Loudness</td>
+            <td>Off</td>
             <td>Fletcher-Munson-inspired boost for full-sounding low-volume playing</td>
           </tr>
         </tbody>
