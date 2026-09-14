@@ -121,8 +121,8 @@
       <p>The signal path flows from a soft-clipping preamp through a tilt EQ, sample-rate reducer, bit section, wavetable mapper with smooth morph between adjacent tables, dry/wet mix, optional safety low-pass filter, and output trim. Envelope routing lets you modulate the SRR frequency and bit depth dynamically.</p>
       <p>DecayChain supports two DSP processing modes:</p>
       <ul>
-        <li><strong>Legacy</strong> — the original processing path. Wavetable lookup uses nearest-sample indexing for a deliberately crunchy, lo-fi character. The bit crusher and wavetable stages operate directly on each sample with no anti-aliasing.</li>
-        <li><strong>ADAA</strong> — Antiderivative Anti-Aliasing for cleaner harmonics with reduced aliasing artifacts at the base sample rate, combining Simpson's rule ADAA on the bit crusher and LUT integral ADAA on the wavetable mapper.</li>
+        <li><strong>Legacy</strong>: the original processing path. Wavetable lookup uses nearest-sample indexing for a deliberately crunchy, lo-fi character. The bit crusher and wavetable stages operate directly on each sample with no anti-aliasing.</li>
+        <li><strong>ADAA</strong>: Antiderivative Anti-Aliasing for cleaner harmonics with reduced aliasing artifacts at the base sample rate, combining Simpson's rule ADAA on the bit crusher and LUT integral ADAA on the wavetable mapper.</li>
       </ul>
     </section>
 
@@ -130,19 +130,19 @@
       <h2 id="signal-path-title">Signal Path</h2>
       <p>Audio flows through a carefully staged chain designed for maximum tonal flexibility:</p>
       <ol>
-        <li><strong>Input</strong> — incoming audio signal</li>
-        <li><strong>Preamp</strong> — ±36 dB gain with soft-clip guard at extremes</li>
-        <li><strong>Tone</strong> — tilt EQ at 800 Hz, true bypass when centred</li>
-        <li><strong>Pre HP</strong> — pre high-pass filter (20 Hz – 5 kHz)</li>
-        <li><strong>Pre LP</strong> — pre low-pass filter (1 kHz – 20 kHz)</li>
-        <li><strong>SRR</strong> — sample-rate reducer (~260 Hz → 192 kHz), with optional Fine mode</li>
-        <li><strong>Bit Section</strong> — 1–16 bit depth or 0–255 hex bitmask, pre or post wavetable</li>
-        <li><strong>Wavetable Mapper</strong> — 265 × 256-point tables, hex index 00–108</li>
-        <li><strong>Morph</strong> — smooth blend toward adjacent table (0.0–1.0)</li>
-        <li><strong>Table Mix</strong> — wavetable stage dry/wet blend (0–100%)</li>
-        <li><strong>Dry/Wet Mix</strong> — equal-power crossfade</li>
-        <li><strong>Safety LPF</strong> — optional post-processing low-pass filter</li>
-        <li><strong>Output Trim</strong> — −24 to +12 dB final level control</li>
+        <li><strong>Input</strong>: incoming audio signal</li>
+        <li><strong>Preamp</strong>: ±36 dB gain with soft-clip guard at extremes</li>
+        <li><strong>Tone</strong>: tilt EQ at 800 Hz, true bypass when centred</li>
+        <li><strong>Pre HP</strong>: pre high-pass filter (20 Hz – 5 kHz)</li>
+        <li><strong>Pre LP</strong>: pre low-pass filter (1 kHz – 20 kHz)</li>
+        <li><strong>SRR</strong>: sample-rate reducer (~260 Hz → 192 kHz), with optional Fine mode</li>
+        <li><strong>Bit Section</strong>: 1–16 bit depth or 0–255 hex bitmask, pre or post wavetable</li>
+        <li><strong>Wavetable Mapper</strong>: 265 × 256-point tables, hex index 00–108</li>
+        <li><strong>Morph</strong>: smooth blend toward adjacent table (0.0–1.0)</li>
+        <li><strong>Table Mix</strong>: wavetable stage dry/wet blend (0–100%)</li>
+        <li><strong>Dry/Wet Mix</strong>: equal-power crossfade</li>
+        <li><strong>Safety LPF</strong>: optional post-processing low-pass filter</li>
+        <li><strong>Output Trim</strong>: −24 to +12 dB final level control</li>
       </ol>
     </section>
 
@@ -159,7 +159,7 @@
         <li><strong>Preamp &amp; Tone Stage:</strong> ±36 dB preamp with soft-clipping drives the downstream distortion stages. Tilt EQ at 800 Hz shapes the input spectrum before crushing.</li>
         <li><strong>Safety LPF:</strong> Optional first-order low-pass (18 kHz default) tames harsh upper harmonics when needed, without affecting the core distortion character.</li>
         <li><strong>Zero-Latency Processing:</strong> No latency added to your signal chain. Zero heap allocations on the audio thread, denormal/NaN guards on every nonlinear boundary.</li>
-        <li><strong>21 Factory Presets:</strong> From lo-fi samplers and industrial drones to ambient shimmer and bass destruction — with full user preset management.</li>
+        <li><strong>21 Factory Presets:</strong> From lo-fi samplers and industrial drones to ambient shimmer and bass destruction: with full user preset management.</li>
       </ul>
     </section>
 
@@ -300,7 +300,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Utility</td><td>Init</td><td>Clean baseline — all defaults</td></tr>
+          <tr><td>Utility</td><td>Init</td><td>Clean baseline: all defaults</td></tr>
           <tr><td>Lo-Fi</td><td>8-Bit Sampler</td><td>Crunchy 4-bit, pre-table</td></tr>
           <tr><td>Experimental</td><td>Aliasing Heaven</td><td>Low SRR, post-table</td></tr>
           <tr><td>Video</td><td>Video Nibble</td><td>Mask 0xF0 with morph 0.15</td></tr>
@@ -349,7 +349,7 @@
           <tr>
             <td>AU (Audio Unit)</td>
             <td>✓</td>
-            <td>—</td>
+            <td>:</td>
           </tr>
         </tbody>
       </table>
@@ -401,9 +401,9 @@
         <li>Run the installer. If Windows SmartScreen appears, click <strong>More info → Run anyway</strong>.</li>
         <li>Choose the installation type:
           <ul>
-            <li><strong>Full</strong> — VST3 + Factory Presets (default)</li>
-            <li><strong>VST3 only</strong> — plug-in without presets</li>
-            <li><strong>Custom</strong> — choose individually</li>
+            <li><strong>Full</strong>: VST3 + Factory Presets (default)</li>
+            <li><strong>VST3 only</strong>: plug-in without presets</li>
+            <li><strong>Custom</strong>: choose individually</li>
           </ul>
         </li>
         <li>Open your DAW and scan for new plug-ins. DecayChain will appear under <strong>Nullform Audio</strong>.</li>

@@ -926,7 +926,7 @@ main {
 }
 
 /* ==========================================
-   Responsive — Products & Product Pages
+   Responsive: Products & Product Pages
    ========================================== */
 @media (max-width: 768px) {
   .nav-toggle { display: block }
