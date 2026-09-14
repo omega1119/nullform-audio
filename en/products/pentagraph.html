@@ -120,7 +120,7 @@
       <p>The result is an EQ that <em>feels</em> like the real thing: true band independence, the characteristic "V-curve" scoop, gain-dependent Q narrowing, and subtle op-amp saturation when pushed.</p>
       <p>PentaGraph operates in two modes, selectable via the <strong>Analog Modeling</strong> toggle in the settings (cog) menu:</p>
       <ul>
-        <li><strong>Nominal mode</strong> (default): uses the pedal’s published frequency labels (80 / 240 / 750 / 2.2k / 6.6k) and clean textbook filtering with no saturation. Each band’s Q is <strong>user-adjustable</strong> (range 0.3–6.0, default 0.667), so you can dial the EQ from broad and musical to surgical and notch-like. Ideal for general-purpose EQ duties.</li>
+        <li><strong>Nominal mode</strong> (default): uses the pedal’s published frequency labels (80 / 240 / 750 / 2.2k / 6.6k) and clean textbook filtering with no saturation. Each band’s Q is <strong>user-adjustable</strong> (range 0.3-6.0, default 0.667), so you can dial the EQ from broad and musical to surgical and notch-like. Ideal for general-purpose EQ duties.</li>
         <li><strong>Analog mode</strong>: uses studio-calibrated centre frequencies, calibrated per-band Q values, nonlinear gain mapping, and dual-stage ADAA saturation (wrapped in 2× IIR oversampling) to faithfully reproduce the real hardware’s response. The user Q controls are bypassed in this mode in favour of the measured values.</li>
       </ul>
       <p>Analog Modeling is a fully automatable parameter and is saved and restored with presets, so factory and user presets can each specify which mode to use.</p>
@@ -137,13 +137,13 @@
       <ul>
         <li><strong>Parallel Summing Topology:</strong> Each band filters the dry input independently and the contributions are summed: exactly as in the analog circuit's op-amp summing stage. This preserves true band independence, fundamentally different from cascading five peaking biquads in series.</li>
         <li><strong>Dual-Mode Operation:</strong> Switch between <strong>Nominal</strong> (clean, textbook EQ with published frequencies and user-adjustable per-band Q) and <strong>Analog</strong> (hardware-calibrated frequencies, calibrated per-band Q, nonlinear gain mapping, and analog saturation) via the settings menu.</li>
-        <li><strong>User-Adjustable Per-Band Q (Nominal Mode):</strong> Each band has its own Q control (0.3–6.0, default 0.667), editable via the slider under each fader, by mouse-wheeling over the band’s point on the curve, or via host automation: dial each band from broad and musical to surgical and notch-like.</li>
-        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2–4 as wide peaking filters.</li>
+        <li><strong>User-Adjustable Per-Band Q (Nominal Mode):</strong> Each band has its own Q control (0.3-6.0, default 0.667), editable via the slider under each fader, by mouse-wheeling over the band’s point on the curve, or via host automation: dial each band from broad and musical to surgical and notch-like.</li>
+        <li><strong>Hardware-Calibrated Response:</strong> All centre frequencies, Q values, and gain mappings were derived from studio measurements of a real 5-band gyrator EQ pedal (48 kHz / 24-bit WAV via MOTU interface, spectral division with 1/6-octave smoothing). Calibration also identified that Band 1 is a low shelf and Band 5 is a high shelf, with Bands 2-4 as wide peaking filters.</li>
         <li><strong>Gain-Dependent Q (Analog Mode):</strong> At extreme boost or cut settings, the effective Q narrows smoothly, just like the analog circuit. At ±12 dB the effective Q is ~1.36× the base Q: subtle but musically significant.</li>
         <li><strong>Dual-Stage ADAA Saturation with 2× Oversampling (Analog Mode):</strong> Per-band saturation models per-gyrator op-amp headroom, while post-summing saturation models the summing amplifier. Both use first-order Antiderivative Anti-Aliasing with <code>tanh</code> soft clipping, wrapped in 2× IIR oversampling (~43 dB image rejection, ~41 dB reduction in naive-<code>tanh</code> aliasing) for clean harmonics with zero reported latency. Per-band drive is envelope-modulated (attack ~1 ms, release ~50 ms) and bypassed entirely at low gain settings for zero overhead.</li>
         <li><strong>Pedal-Style Gain Staging:</strong> Input and output trims (−40 to +6 dB) with unity detent at 0 dB, so you can place PentaGraph like an FX-loop EQ. Drive the input trim to push the saturation stages for more analog character.</li>
         <li><strong>15 Factory Presets:</strong> From the iconic Classic V scoop to Djent Focus, Jazz Roll-Off, Fuzz Friend, and more: with full user preset management (save, rename, delete).</li>
-        <li><strong>Automation-Safe &amp; Efficient:</strong> Zero heap allocations on the audio thread, no zipper noise (15–20 ms parameter smoothing), stable across 44.1–192 kHz sample rates, no denormals or NaN propagation.</li>
+        <li><strong>Automation-Safe &amp; Efficient:</strong> Zero heap allocations on the audio thread, no zipper noise (15-20 ms parameter smoothing), stable across 44.1-192 kHz sample rates, no denormals or NaN propagation.</li>
         <li><strong>Zero-Latency Processing:</strong> No latency added to your signal chain. Suitable for tracking, mixing, and live use.</li>
       </ul>
     </section>
@@ -186,7 +186,7 @@
           </tr>
           <tr>
             <td>Per-band Q (×5)</td>
-            <td>0.3 – 6.0</td>
+            <td>0.3 - 6.0</td>
             <td>Bandwidth control per band (Nominal mode only); default 0.667. Editable via the slider under each fader, mouse-wheel over the curve point, or host automation.</td>
           </tr>
           <tr>
