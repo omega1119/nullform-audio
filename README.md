@@ -8,39 +8,45 @@ Website for [nullform.audio](https://nullform.audio)
 nullform-audio/
 ├── CNAME                    # Domain configuration
 ├── README.md
-└── docs/                    # GitHub Pages root
-    ├── index.html           # Redirect page (language detection)
-    ├── assets/
-    │   ├── css/
-    │   │   └── styles.css   # Main stylesheet
-    │   └── js/
-    │       ├── main.js      # Theme toggle & utilities
-    │       └── redirect.js  # Language redirect logic
-    └── en/                  # English locale
-        ├── index.html       # Coming soon landing page
-        ├── privacy.html     # Privacy policy
-        └── terms.html       # Terms of service
+├── index.html               # Redirect shell (language detection) into en/
+├── favicon.svg
+├── assets/
+│   ├── css/
+│   │   └── styles.css       # Main stylesheet
+│   ├── fonts/               # Self-hosted Inter
+│   ├── images/              # Product screenshots
+│   └── js/
+│       ├── main.js          # Theme toggle, nav, footer, cookie consent
+│       └── redirect.js      # Language redirect logic
+└── en/                      # English locale
+    ├── index.html           # Landing page
+    ├── privacy.html         # Privacy policy
+    ├── terms.html           # Terms of service
+    ├── links/index.html     # Social links page (not localised)
+    └── products/
+        ├── pentagraph.html  # PentaGraph 5-band graphic EQ
+        └── decaychain.html  # DecayChain bit-crusher and wavetable distortion
 ```
+
+The site files live at the repository root, not in a `docs/` folder.
 
 ## Localization
 
-The site is structured to support multiple languages in the future. To add a new language:
-
-1. Create a new folder under `docs/` (e.g., `docs/de/` for German)
-2. Copy the English files and translate content
-3. Update `docs/index.html` to add the new language redirect
-4. Update language selectors in all HTML files
+The site is English only today. To add a language, copy `en/` to a new locale folder
+(e.g. `de/`), translate it, update the `data-languages` JSON on every page, and add a
+`data-redirect-<lang>` attribute for it to the root `index.html` script tag.
 
 ## Local Development
 
-Open `docs/en/index.html` in a browser, or use a local server:
+See [LOCAL_DEV.md](LOCAL_DEV.md). Quick start:
 
 ```bash
-cd docs && python3 -m http.server 8000
+python3 -m http.server 8080
 ```
 
-Then visit `http://localhost:8000/en/`
+Then visit `http://localhost:8080/en/`
 
 ## Deployment
 
-The site is deployed via GitHub Pages from the `docs/` folder.
+The site is deployed via GitHub Pages from the root of the `main` branch. A push to
+`main` publishes live, so open a pull request for changes.
