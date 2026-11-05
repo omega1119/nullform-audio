@@ -540,11 +540,6 @@ main {
   box-shadow: var(--shadow-lg);
   border-color: var(--accent);
 }
-.product-icon { 
-  width: 80px; 
-  height: 80px; 
-  margin-bottom: 8px;
-}
 .product-content h3 { 
   margin: 0 0 8px; 
   font-size: 24px;
@@ -576,7 +571,7 @@ main {
   color: var(--muted);
 }
 .features li:before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: -20px;
   color: var(--accent);
@@ -672,10 +667,6 @@ main {
   align-items: start;
 }
 
-.product-hero__icon {
-  margin-bottom: 20px;
-}
-
 .product-lead {
   color: var(--muted);
   margin: 12px 0 20px;
@@ -698,7 +689,7 @@ main {
 }
 
 .product-highlights li:before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: 0;
   color: var(--accent);
@@ -751,7 +742,7 @@ main {
 }
 
 .product-section li:before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: -20px;
   color: var(--accent);
@@ -1099,3 +1090,13 @@ main {
     text-align: center;
   }
 }
+
+.legal-content { color: var(--muted); font-size: 16px; line-height: 1.7; margin-top: 32px }
+.legal-content h2 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 16px; margin-top: 40px }
+.legal-content h2:first-child { margin-top: 0 }
+.legal-content p { margin-bottom: 24px }
+.legal-content ul { margin-bottom: 24px; padding-left: 24px }
+.legal-content li { margin-bottom: 8px }
+.legal-content a { color: var(--accent) }
+.legal-content strong { color: var(--text) }
+.legal-date { color: var(--muted); font-size: 14px; margin-top: 48px }

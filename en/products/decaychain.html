@@ -18,8 +18,8 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>DecayChain | Bit-Crusher &amp; Wavetable Distortion Plugin | Nullform Audio</title>
-  <meta name="description" content="DecayChain is a modern bit-crusher and wavetable distortion plugin with 265 original wavetables, preamp/tone stage, envelope routing, and ADAA processing. Available as VST3 and AU for macOS, and VST3 for Windows." />
+  <title>DecayChain | Bit-crusher &amp; wavetable distortion plugin | Nullform Audio</title>
+  <meta name="description" content="DecayChain is a bit-crusher and wavetable distortion plugin with 265 original wavetables, a preamp and tone stage, envelope routing and ADAA processing. Available as VST3 and AU for macOS, and VST3 for Windows." />
   <meta name="keywords" content="DecayChain, bit-crusher, wavetable distortion, VST3, AU, audio unit, lo-fi, sample rate reducer, distortion plugin, ADAA, Nullform Audio" />
   <meta name="author" content="Nullform Audio" />
   <meta name="robots" content="index, follow" />
@@ -37,8 +37,8 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://nullform.audio/en/products/decaychain.html" />
-  <meta property="og:title" content="DecayChain | Bit-Crusher &amp; Wavetable Distortion Plugin | Nullform Audio" />
-  <meta property="og:description" content="DecayChain is a modern bit-crusher and wavetable distortion plugin with 265 original wavetables, preamp/tone stage, envelope routing, and ADAA processing. Available as VST3 and AU for macOS, and VST3 for Windows." />
+  <meta property="og:title" content="DecayChain | Bit-crusher &amp; wavetable distortion plugin | Nullform Audio" />
+  <meta property="og:description" content="DecayChain is a bit-crusher and wavetable distortion plugin with 265 original wavetables, a preamp and tone stage, envelope routing and ADAA processing. Available as VST3 and AU for macOS, and VST3 for Windows." />
   <meta property="og:image" content="https://nullform.audio/assets/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -47,8 +47,8 @@
   <meta property="og:locale" content="en_US" />
 
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=3" />
-  <script defer src="../../assets/js/main.js?v=2"></script>
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=5" />
+  <script defer src="../../assets/js/main.js?v=4"></script>
 
   <link rel="alternate" hreflang="en" href="https://nullform.audio/en/products/decaychain.html" />
   <link rel="alternate" hreflang="x-default" href="https://nullform.audio/en/products/decaychain.html" />
@@ -60,7 +60,7 @@
     "name": "DecayChain",
     "operatingSystem": "macOS, Windows",
     "applicationCategory": "MultimediaApplication",
-    "description": "A modern bit-crusher and wavetable distortion plugin with 265 original wavetables, preamp/tone stage, flexible bit logic, envelope routing, and optional ADAA processing. Inspired by the feel of hardware bit-crusher workflows.",
+    "description": "A bit-crusher and wavetable distortion plugin with 265 original wavetables, a preamp and tone stage, a bit section that can sit before or after the wavetable mapper, envelope routing, and optional ADAA processing.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -103,11 +103,11 @@
     <div class="product-hero">
       <div class="product-hero__copy">
         <h1>DecayChain</h1>
-        <p class="product-lead">A modern bit-crusher and wavetable distortion plugin. Preamp/tone stage up front, flexible bit logic pre or post the wavetable mapper, 265 original wavetables with hex table index, table morph, envelope routing, and an optional safety LPF. Inspired by the feel of hardware bit-crusher workflows.</p>
+        <p class="product-lead">A bit-crusher and wavetable distortion plugin. A preamp and tone stage sits up front, the bit section can run before or after the wavetable mapper, and there are 265 original wavetables with a hex table index, table morph, envelope routing and an optional safety LPF.</p>
 
         <ul class="product-highlights">
           <li>Bit-crusher with Depth (1-16 bits) and Mask (0-255 hex bitmask) modes</li>
-          <li>265 procedurally generated wavetables with hex index &amp; smooth table morph</li>
+          <li>265 procedurally generated wavetables with hex index &amp; table morph</li>
           <li>Preamp (±36 dB), tilt EQ, sample-rate reducer, envelope routing</li>
           <li>Dual DSP modes: Legacy (crunchy lo-fi) and ADAA (anti-aliased)</li>
           <li>21 factory presets · VST3 &amp; AU on macOS · VST3 on Windows</li>
@@ -129,49 +129,49 @@
 
     <section class="product-section" aria-labelledby="overview-title">
       <h2 id="overview-title">Overview</h2>
-      <p>DecayChain is a modern bit-crusher and wavetable distortion plugin that puts a preamp/tone stage up front and offers flexible bit logic either before or after a wavetable mapper loaded with 265 original procedurally generated wavetables.</p>
-      <p>The signal path flows from a soft-clipping preamp through a tilt EQ, sample-rate reducer, bit section, wavetable mapper with smooth morph between adjacent tables, dry/wet mix, optional safety low-pass filter, and output trim. Envelope routing lets you modulate the SRR frequency and bit depth dynamically.</p>
-      <p>DecayChain supports two DSP processing modes:</p>
+      <p>DecayChain is a bit-crusher and wavetable distortion plugin with a preamp and tone stage up front. The bit section can run before or after a wavetable mapper loaded with 265 original, procedurally generated wavetables.</p>
+      <p>The signal path runs from a soft-clipping preamp through a tilt EQ, sample-rate reducer, bit section, wavetable mapper (with morph between adjacent tables), dry/wet mix and optional safety low-pass filter to the output trim. Envelope routing modulates the SRR frequency and bit depth.</p>
+      <p>DecayChain has two DSP modes:</p>
       <ul>
-        <li><strong>Legacy</strong>: the original processing path. Wavetable lookup uses nearest-sample indexing for a deliberately crunchy, lo-fi character. The bit crusher and wavetable stages operate directly on each sample with no anti-aliasing.</li>
-        <li><strong>ADAA</strong>: Antiderivative Anti-Aliasing for cleaner harmonics with reduced aliasing artifacts at the base sample rate, combining Simpson's rule ADAA on the bit crusher and LUT integral ADAA on the wavetable mapper.</li>
+        <li>Legacy is the original processing path. Wavetable lookup uses nearest-sample indexing for a deliberately crunchy, lo-fi character, and the bit crusher and wavetable stages work directly on each sample with no anti-aliasing.</li>
+        <li>ADAA uses Antiderivative Anti-Aliasing to reduce aliasing artifacts at the base sample rate, with Simpson's rule ADAA on the bit crusher and LUT integral ADAA on the wavetable mapper.</li>
       </ul>
     </section>
 
     <section class="product-section" aria-labelledby="signal-path-title">
-      <h2 id="signal-path-title">Signal Path</h2>
-      <p>Audio flows through a carefully staged chain designed for maximum tonal flexibility:</p>
+      <h2 id="signal-path-title">Signal path</h2>
+      <p>Audio passes through these stages in order:</p>
       <ol>
-        <li><strong>Input</strong>: incoming audio signal</li>
-        <li><strong>Preamp</strong>: ±36 dB gain with soft-clip guard at extremes</li>
-        <li><strong>Tone</strong>: tilt EQ at 800 Hz, true bypass when centred</li>
-        <li><strong>Pre HP</strong>: pre high-pass filter (20 Hz - 5 kHz)</li>
-        <li><strong>Pre LP</strong>: pre low-pass filter (1 kHz - 20 kHz)</li>
-        <li><strong>SRR</strong>: sample-rate reducer (~260 Hz → 192 kHz), with optional Fine mode</li>
-        <li><strong>Bit Section</strong>: 1-16 bit depth or 0-255 hex bitmask, pre or post wavetable</li>
-        <li><strong>Wavetable Mapper</strong>: 265 × 256-point tables, hex index 00-108</li>
-        <li><strong>Morph</strong>: smooth blend toward adjacent table (0.0-1.0)</li>
-        <li><strong>Table Mix</strong>: wavetable stage dry/wet blend (0-100%)</li>
-        <li><strong>Dry/Wet Mix</strong>: equal-power crossfade</li>
-        <li><strong>Safety LPF</strong>: optional post-processing low-pass filter</li>
-        <li><strong>Output Trim</strong>: −24 to +12 dB final level control</li>
+        <li>Input signal</li>
+        <li>Preamp, ±36 dB gain with a soft-clip guard at the extremes</li>
+        <li>Tone stage, a tilt EQ at 800 Hz with true bypass when centred</li>
+        <li>Pre HP, a high-pass filter (20 Hz - 5 kHz)</li>
+        <li>Pre LP, a low-pass filter (1 kHz - 20 kHz)</li>
+        <li>SRR, the sample-rate reducer (~260 Hz → 192 kHz), with optional Fine mode</li>
+        <li>Bit section, 1-16 bit depth or 0-255 hex bitmask, placed before or after the wavetable</li>
+        <li>Wavetable mapper, 265 × 256-point tables with hex index 00-108</li>
+        <li>Morph, a blend toward the adjacent table (0.0-1.0)</li>
+        <li>Table mix, the wavetable stage dry/wet blend (0-100%)</li>
+        <li>Dry/wet mix, an equal-power crossfade</li>
+        <li>Safety LPF, an optional post-processing low-pass filter</li>
+        <li>Output trim, −24 to +12 dB final level control</li>
       </ol>
     </section>
 
     <section class="product-section" aria-labelledby="features-title">
-      <h2 id="features-title">Key Features</h2>
+      <h2 id="features-title">Features</h2>
       <ul>
-        <li><strong>Dual Bit-Crush Modes:</strong> Standard bit-depth reduction (1-16 bits) for classic staircase quantisation, or hex bitmask mode (0-255) for XOR-like logic patterns and unusual harmonic textures.</li>
-        <li><strong>Pre/Post Bit Placement:</strong> Run the bit section before the wavetable for crushed-then-shaped tones, or after for shaped-then-crushed results. Each ordering produces fundamentally different distortion character.</li>
-        <li><strong>265 Original Wavetables:</strong> All procedurally generated (256 samples each, float32), embedded via BinaryData with no external files. Hex index display (00-108) for precise table selection.</li>
-        <li><strong>Smooth Table Morph:</strong> Blend seamlessly between adjacent wavetables for evolving timbral transitions. In ADAA mode, anti-aliasing is evaluated independently on both tables and linearly blended.</li>
-        <li><strong>Envelope Routing:</strong> Route an internal envelope to the sample-rate reducer, bit depth, or both, with bipolar modulation amounts (−1 to +1) for dynamic, input-responsive distortion.</li>
-        <li><strong>Dual DSP Modes:</strong> Legacy mode for raw, crunchy lo-fi character. ADAA mode combines Simpson's rule on the bit crusher and LUT integral anti-aliasing on the wavetable mapper.</li>
-        <li><strong>Pre Filters:</strong> Adjustable high-pass (20 Hz - 5 kHz) and low-pass (1 kHz - 20 kHz) for sculpting the input signal before the crush stages.</li>
-        <li><strong>Preamp &amp; Tone Stage:</strong> ±36 dB preamp with soft-clipping drives the downstream distortion stages. Tilt EQ at 800 Hz shapes the input spectrum before crushing.</li>
-        <li><strong>Safety LPF:</strong> Optional first-order low-pass (18 kHz default) tames harsh upper harmonics when needed, without affecting the core distortion character.</li>
-        <li><strong>Zero-Latency Processing:</strong> No latency added to your signal chain. Zero heap allocations on the audio thread, denormal/NaN guards on every nonlinear boundary.</li>
-        <li><strong>21 Factory Presets:</strong> From lo-fi samplers and industrial drones to ambient shimmer and bass destruction: with full user preset management.</li>
+        <li>The bit-crusher has two modes: standard bit-depth reduction (1-16 bits) for classic staircase quantisation, and a hex bitmask (0-255) for XOR-like logic patterns and unusual harmonic textures.</li>
+        <li>The bit section can run before the wavetable for crushed-then-shaped tones, or after it for shaped-then-crushed results. The two orderings give different distortion.</li>
+        <li>All 265 original wavetables are procedurally generated (256 samples each, float32) and embedded via BinaryData, with no external files. A hex index display (00-108) selects the table.</li>
+        <li>Table morph blends between adjacent wavetables. In ADAA mode, anti-aliasing is evaluated independently on both tables and linearly blended.</li>
+        <li>An internal envelope can be routed to the sample-rate reducer, the bit depth, or both, with bipolar modulation amounts (−1 to +1), so the distortion follows the input.</li>
+        <li>Legacy mode gives a raw, crunchy lo-fi character. ADAA mode combines Simpson's rule on the bit crusher with LUT integral anti-aliasing on the wavetable mapper.</li>
+        <li>Adjustable high-pass (20 Hz - 5 kHz) and low-pass (1 kHz - 20 kHz) pre filters shape the input signal before the crush stages.</li>
+        <li>A ±36 dB preamp with soft clipping drives the downstream distortion stages, and an 800 Hz tilt EQ shapes the input spectrum before crushing.</li>
+        <li>The optional first-order safety low-pass (18 kHz default) tames harsh upper harmonics without affecting the core distortion character.</li>
+        <li>DecayChain adds no latency to your signal chain. It makes no heap allocations on the audio thread and has denormal/NaN guards on every nonlinear boundary.</li>
+        <li>The 21 factory presets cover categories including Lo-Fi, Drone, Drum, Bass and Ambient, with user preset management.</li>
       </ul>
     </section>
 
@@ -301,8 +301,8 @@
     </section>
 
     <section class="product-section" aria-labelledby="presets-title">
-      <h2 id="presets-title">Factory Presets</h2>
-      <p>DecayChain ships with 21 factory presets across a wide range of styles.</p>
+      <h2 id="presets-title">Factory presets</h2>
+      <p>DecayChain ships with 21 factory presets in the categories below.</p>
       <table class="spec-table">
         <thead>
           <tr>
@@ -335,15 +335,15 @@
           <tr><td>Experimental</td><td>Weird Guitar Artifacts</td><td>Glitchy guitar textures</td></tr>
         </tbody>
       </table>
-      <p>User presets are stored as <code>.nfapreset</code> files in:</p>
+      <p>User presets are stored as <code>.nfapreset</code> files:</p>
       <ul>
-        <li><strong>macOS:</strong> <code>~/Library/Application Support/Nullform Audio/DecayChain/Presets/</code></li>
-        <li><strong>Windows:</strong> <code>%APPDATA%\Nullform Audio\DecayChain\Presets\</code></li>
+        <li>On macOS, in <code>~/Library/Application Support/Nullform Audio/DecayChain/Presets/</code></li>
+        <li>On Windows, in <code>%APPDATA%\Nullform Audio\DecayChain\Presets\</code></li>
       </ul>
     </section>
 
     <section class="product-section" aria-labelledby="formats-title">
-      <h2 id="formats-title">Plugin Formats &amp; Compatibility</h2>
+      <h2 id="formats-title">Plugin formats and compatibility</h2>
       <table class="spec-table">
         <thead>
           <tr>
@@ -355,21 +355,21 @@
         <tbody>
           <tr>
             <td>VST3</td>
-            <td>✓</td>
-            <td>✓</td>
+            <td>Yes</td>
+            <td>Yes</td>
           </tr>
           <tr>
             <td>AU (Audio Unit)</td>
-            <td>✓</td>
-            <td>:</td>
+            <td>Yes</td>
+            <td>No</td>
           </tr>
         </tbody>
       </table>
-      <p>Compatible with any VST3- or AU-compatible DAW including Logic Pro, Ableton Live, Reaper, Studio One, Cubase, FL Studio, Bitwig, and more.</p>
+      <p>Works in any DAW that hosts VST3 or AU plug-ins, such as Logic Pro, Ableton Live, Reaper, Studio One, Cubase, FL Studio and Bitwig.</p>
     </section>
 
     <section class="product-section" aria-labelledby="requirements-title">
-      <h2 id="requirements-title">System Requirements</h2>
+      <h2 id="requirements-title">System requirements</h2>
 
       <h3 style="font-size:18px; margin-bottom:12px;">macOS</h3>
       <ul>
@@ -413,22 +413,22 @@
         <li>Run the installer. If Windows SmartScreen appears, click <strong>More info → Run anyway</strong>.</li>
         <li>Choose the installation type:
           <ul>
-            <li><strong>Full</strong>: VST3 + Factory Presets (default)</li>
-            <li><strong>VST3 only</strong>: plug-in without presets</li>
-            <li><strong>Custom</strong>: choose individually</li>
+            <li>Full installs the VST3 plug-in and factory presets (the default)</li>
+            <li>VST3 only installs the plug-in without presets</li>
+            <li>Custom lets you choose components individually</li>
           </ul>
         </li>
         <li>Open your DAW and scan for new plug-ins. DecayChain will appear under <strong>Nullform Audio</strong>.</li>
       </ol>
 
       <h3 style="font-size:18px; margin: 24px 0 12px;">Uninstalling</h3>
-      <p><strong>macOS:</strong> Remove the following items:</p>
+      <p>On macOS, remove these items:</p>
       <ul>
         <li><code>/Library/Audio/Plug-Ins/VST3/DecayChain.vst3</code></li>
         <li><code>/Library/Audio/Plug-Ins/Components/DecayChain.component</code></li>
         <li><code>/Library/Application Support/Nullform Audio/DecayChain/</code></li>
       </ul>
-      <p><strong>Windows:</strong> Use <strong>Add/Remove Programs</strong> (Settings → Apps). The uninstaller removes the VST3 plug-in and factory presets. User presets in <code>%APPDATA%</code> are not touched.</p>
+      <p>On Windows, use <strong>Add/Remove Programs</strong> (Settings → Apps). The uninstaller removes the VST3 plug-in and factory presets. User presets in <code>%APPDATA%</code> are not touched.</p>
     </section>
   </main>
 
